@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Video Content for Real Estate — Tucson Partners Wanted</title>
+<style>
+  :root {
+    --cream: #F7F5F0;
+    --ink: #1C2420;
+    --green: #1D9E75;
+    --green-dark: #147051;
+    --line: #E2E0D8;
+    --muted: #6B7268;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.55;
+    padding: 28px 16px 60px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+
+  /* ---- Hero ---- */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    padding: 10px 0 30px;
+  }
+  .avatar {
+    width: 92px; height: 92px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--green);
+  }
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    font-weight: 700;
+  }
+  h1 {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    max-width: 540px;
+  }
+  .hero p {
+    color: var(--muted);
+    max-width: 520px;
+    font-size: 16px;
+  }
+
+  /* ---- Pitch card ---- */
+  .pitch {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin-bottom: 36px;
+  }
+  .pitch h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: var(--green-dark);
+  }
+  .pitch p { margin-bottom: 10px; font-size: 15px; }
+  .pitch p:last-child { margin-bottom: 0; }
+  .pitch ul { margin: 10px 0 10px 20px; font-size: 15px; }
+  .pitch li { margin-bottom: 4px; }
+
+  /* ---- Section headers ---- */
+  .section-head {
+    margin: 38px 0 14px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .section-head h3 { font-size: 17px; font-weight: 700; }
+  .section-head span {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ---- Grid ---- */
+  .row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+  }
+  .thumb {
+    position: relative;
+    aspect-ratio: 9/16;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #000;
+    border: 1px solid var(--line);
+  }
+  .thumb img, .thumb video {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .thumb .play {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(0,0,0,0.18);
+    transition: background 0.2s;
+  }
+  .thumb:hover .play { background: rgba(0,0,0,0.35); }
+  .play-icon {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.92);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .play-icon::after {
+    content: "";
+    border-style: solid;
+    border-width: 7px 0 7px 11px;
+    border-color: transparent transparent transparent var(--green-dark);
+    margin-left: 2px;
+  }
+  .thumb-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 5px 6px 4px;
+    font-size: 10.5px;
+    color: #fff;
+    background: linear-gradient(transparent, rgba(0,0,0,0.65));
+    font-weight: 600;
+  }
+
+  @media (max-width: 600px) {
+    .row { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    h1 { font-size: 24px; }
+  }
+
+  /* ---- CTA ---- */
+  .cta {
+    margin-top: 44px;
+    background: var(--green);
+    border-radius: 14px;
+    padding: 28px 24px;
+    text-align: center;
+    color: #fff;
+  }
+  .cta h3 { font-size: 20px; margin-bottom: 8px; }
+  .cta p { font-size: 15px; opacity: 0.92; margin-bottom: 18px; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .cta-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #fff; color: var(--green-dark);
+    padding: 12px 22px; border-radius: 999px;
+    text-decoration: none; font-weight: 700; font-size: 15px;
+    transition: transform 0.15s;
+  }
+  .cta-btn:hover { transform: translateY(-1px); }
+
+  .footer-note {
+    margin-top: 28px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  /* ---- Lightbox ---- */
+  .lightbox {
+    position: fixed; inset: 0;
+    background: rgba(10,12,10,0.92);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 1000;
+    padding: 24px;
+  }
+  .lightbox.active { display: flex; }
+  .lightbox-content {
+    max-width: 420px; width: 100%;
+    aspect-ratio: 9/16;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+  }
+  .lightbox-content video, .lightbox-content iframe {
+    width: 100%; height: 100%;
+    border: 0; display: block;
+  }
+  .lightbox-close {
+    position: absolute; top: -42px; right: 0;
+    color: #fff; font-size: 28px; cursor: pointer;
+    background: none; border: none; line-height: 1;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <img class="avatar" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/MY%20PORTFOLIO/LOGOS/lamar_myers_b.png" alt="Lamar Myers">
+    <p class="eyebrow">Tucson, AZ · Partnership Opportunity</p>
+    <h1>Looking for a Tucson partner to help bring AI-powered video marketing to local real estate pros</h1>
+    <p>I build short-form, AI-produced video content — like the examples below — for apartment communities and real estate teams. I'm looking for someone in the Tucson area to help bring this to property managers, leasing offices, and agents. Could be a fit if you're already in real estate, marketing, or just know people in the industry.</p>
+  </div>
+
+  <!-- PITCH -->
+  <div class="pitch">
+    <h2>What this is</h2>
+    <p>Every example below is AI-produced — no camera crew, no model fees, no studio. Properties get a steady stream of ready-to-post TikTok/Instagram content featuring their actual spaces (and an AI brand ambassador) for a fraction of traditional production cost.</p>
+    <h2 style="margin-top:14px;">What I'm looking for</h2>
+    <ul>
+      <li>Someone based in or familiar with the Tucson real estate / property management scene</li>
+      <li>Comfortable reaching out to leasing offices, property managers, or agents</li>
+      <li>Open to a revenue-share or referral arrangement — flexible, let's talk</li>
+    </ul>
+    <p>No experience with AI tools required — that part's on me. I just need someone who can open doors locally.</p>
+  </div>
+
+  <!-- PROPERTY EXAMPLES -->
+  <div class="section-head">
+    <h3>Property &amp; grounds footage</h3>
+    <span>5 examples</span>
+  </div>
+  <div class="row" id="propertyRow"></div>
+
+  <!-- SHANICE EXAMPLES -->
+  <div class="section-head">
+    <h3>Shanice — AI brand ambassador</h3>
+    <span>5 examples</span>
+  </div>
+  <div class="row" id="shaniceRow"></div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h3>Interested? Let's talk.</h3>
+    <p>If you're in Tucson and think this could be a fit — for yourself or someone you know in real estate — reach out. Happy to share more examples and talk through how it could work.</p>
+    <div class="cta-buttons">
+      <a class="cta-btn" href="mailto:ai.agent.lamar@gmail.com?subject=Tucson%20Partnership%20Interest">✉ Email Me</a>
+      <a class="cta-btn" href="tel:+15202582714">📱 Call / Text (520) 258-2714</a>
+    </div>
+  </div>
+
+  <p class="footer-note">Lamar Myers · AI-produced video content for real estate · June 2026</p>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content" id="lightboxContent"></div>
+  <button class="lightbox-close" id="lightboxClose">&times;</button>
+</div>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+// Property / grounds footage (Vimeo-hosted)
+const propertyVideos = [
+  { label: "Aerial View",      id: "1200025934", thumb: "https://vumbnail.com/1200025934.jpg" },
+  { label: "Pool Area",         id: "1200032008", thumb: "https://vumbnail.com/1200032008.jpg" },
+  { label: "Leasing Office",    id: "1200032185", thumb: "https://vumbnail.com/1200032185.jpg" },
+  { label: "Gym Area",          id: "1200032300", thumb: "https://vumbnail.com/1200032300.jpg" },
+  { label: "Leasing Walkway",   id: "1200032553", thumb: "https://vumbnail.com/1200032553.jpg" }
+];
+
+// Shanice (AI ambassador) clips — direct mp4s
+const shaniceVideos = [
+  { label: "Pool",            src: "https://jlwolssfdspougmdxfmf.supabase.co/storage/v1/object/public/video_series/shanice_pool.mp4" },
+  { label: "Leasing Office",  src: "https://jlwolssfdspougmdxfmf.supabase.co/storage/v1/object/public/video_series/shanice_leasing_office.mp4" },
+  { label: "Inside Apartment",src: "https://jlwolssfdspougmdxfmf.supabase.co/storage/v1/object/public/video_series/shanice_inside_home.mp4" },
+  { label: "Gym Area",        src: "https://jlwolssfdspougmdxfmf.supabase.co/storage/v1/object/public/video_series/shanice_gym.mp4" },
+  { label: "Kitchen",         src: "https://jlwolssfdspougmdxfmf.supabase.co/storage/v1/object/public/video_series/shanice_kitchen.mp4" }
+];
+
+const propertyRow = document.getElementById('propertyRow');
+const shaniceRow = document.getElementById('shaniceRow');
+const lightbox = document.getElementById('lightbox');
+const lightboxContent = document.getElementById('lightboxContent');
+const lightboxClose = document.getElementById('lightboxClose');
+
+function openVimeo(v) {
+  lightboxContent.innerHTML = `<iframe src="https://player.vimeo.com/video/${v.id}?autoplay=1&loop=1&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+  lightbox.classList.add('active');
+}
+
+function openMp4(v) {
+  lightboxContent.innerHTML = `<video src="${v.src}#t=0.1" controls autoplay loop playsinline></video>`;
+  lightbox.classList.add('active');
+}
+
+function closeLightbox() {
+  lightboxContent.innerHTML = '';
+  lightbox.classList.remove('active');
+}
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+propertyVideos.forEach(v => {
+  const div = document.createElement('div');
+  div.className = 'thumb';
+  div.innerHTML = `
+    <img src="${v.thumb}" alt="${v.label}" loading="lazy">
+    <div class="play"><div class="play-icon"></div></div>
+    <div class="thumb-label">${v.label}</div>`;
+  div.addEventListener('click', () => openVimeo(v));
+  propertyRow.appendChild(div);
+});
+
+shaniceVideos.forEach(v => {
+  const div = document.createElement('div');
+  div.className = 'thumb';
+  div.innerHTML = `
+    <video src="${v.src}#t=0.1" muted playsinline preload="metadata"></video>
+    <div class="play"><div class="play-icon"></div></div>
+    <div class="thumb-label">${v.label}</div>`;
+  div.addEventListener('click', () => openMp4(v));
+  shaniceRow.appendChild(div);
+});
+</script>
+</body>
+</html>
