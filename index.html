@@ -191,7 +191,7 @@
     border-radius: 14px;
     padding: 22px 20px;
   }
-  .card-icon { font-size: 22px; margin-bottom: 10px; }
+  .card-icon { font-size: 22px; margin-bottom: 10px; display: flex; line-height: 1; }
   .card h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
   .card p { font-size: 14px; color: var(--muted); line-height: 1.55; }
 
@@ -570,6 +570,7 @@
     /* Feature cards */
     .cards { grid-template-columns: 1fr; gap: 10px; }
     .card { text-align: center; }
+    .card .card-icon { justify-content: center; }
 
     /* Commission visual */
     .commission-visual { text-align: center; padding: 24px 16px; }
@@ -652,22 +653,22 @@
     <p class="section-body">Every video below is produced entirely with AI — no model fees, no location shoots. Properties get a consistent stream of TikTok/Instagram-ready content at a fraction of what traditional production costs. Your job is to get them in the door. Mine is to deliver.</p>
     <div class="cards">
       <div class="card">
-        <div class="card-icon">🎬</div>
+        <div class="card-icon"><img src="https://elzeahxurnplnrwizjpo.supabase.co/storage/v1/object/public/partner_recruit/calendar.png" alt="Ready-to-post content" style="width:40px;height:40px;object-fit:contain;display:block;"></div>
         <h4>Ready-to-post content</h4>
         <p>Short-form vertical video formatted for TikTok, Instagram Reels, and YouTube Shorts — delivered every month, on schedule.</p>
       </div>
       <div class="card">
-        <div class="card-icon">🤖</div>
+        <div class="card-icon"><img src="https://elzeahxurnplnrwizjpo.supabase.co/storage/v1/object/public/partner_recruit/ai_bot.png" alt="AI brand ambassador" style="width:40px;height:40px;object-fit:contain;display:block;"></div>
         <h4>AI brand ambassador</h4>
         <p>A consistent AI character that represents the property, tours amenities, and keeps content fresh without recurring talent costs.</p>
       </div>
       <div class="card">
-        <div class="card-icon">📐</div>
+        <div class="card-icon"><img src="https://elzeahxurnplnrwizjpo.supabase.co/storage/v1/object/public/partner_recruit/credit-card.png" alt="Flat monthly subscription" style="width:40px;height:40px;object-fit:contain;display:block;"></div>
         <h4>Flat monthly subscription</h4>
         <p>No hourly billing, no project quotes, no surprises. Clients pick a tier, pay monthly, and pause or cancel any time.</p>
       </div>
       <div class="card">
-        <div class="card-icon">📍</div>
+        <div class="card-icon"><img src="https://elzeahxurnplnrwizjpo.supabase.co/storage/v1/object/public/partner_recruit/buildings.png" alt="Built for real estate" style="width:40px;height:40px;object-fit:contain;display:block;"></div>
         <h4>Built for real estate</h4>
         <p>Apartment communities, leasing offices, property managers, and agents — this is built around how they market and what they need.</p>
       </div>
