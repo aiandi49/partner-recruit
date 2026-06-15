@@ -3,107 +3,381 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Video Content for Real Estate — Tucson Partners Wanted</title>
+<title>Partner with Lamar — AI Video for Real Estate</title>
 <style>
   :root {
-    --cream: #F7F5F0;
-    --ink: #1C2420;
-    --green: #1D9E75;
-    --green-dark: #147051;
-    --line: #E2E0D8;
+    --bg: #F7F5F0;
+    --surface: #FFFFFF;
+    --surface2: #F0EDE8;
+    --border: #E2E0D8;
+    --text: #1C2420;
     --muted: #6B7268;
+    --amber: #1D9E75;
+    --amber-dim: rgba(29,158,117,0.10);
+    --green: #147051;
+    --green-dim: rgba(20,112,81,0.10);
+    --white: #FFFFFF;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: var(--cream);
-    color: var(--ink);
-    line-height: 1.55;
-    padding: 28px 16px 60px;
-  }
-  .wrap { max-width: 760px; margin: 0 auto; }
 
-  /* ---- Hero ---- */
-  .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 14px;
-    padding: 10px 0 30px;
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
-  .avatar {
-    width: 92px; height: 92px;
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0;
+  }
+  nav .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text);
+  }
+  .nav-logo-wrap:hover { opacity: 0.82; }
+  .nav-logo-img {
+    width: 44px; height: 44px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--green);
+    border: 2px solid var(--amber);
+    display: block;
   }
-  .eyebrow {
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--green-dark);
-    font-weight: 700;
-  }
-  h1 {
-    font-size: 30px;
+  .nav-logo-text { display: flex; flex-direction: column; gap: 1px; }
+  .nav-name {
+    font-size: 15px;
     font-weight: 800;
     letter-spacing: -0.01em;
-    max-width: 540px;
+    color: var(--text);
+    line-height: 1.1;
   }
-  .hero p {
+  .nav-title {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .nav-badge {
+    font-size: 12px;
+    color: var(--amber);
+    background: var(--amber-dim);
+    border: 1px solid rgba(232,168,56,0.25);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 72px 0 56px;
+    text-align: center;
+  }
+  .hero-avatar {
+    width: 160px; height: 160px;
+    border-radius: 20px;
+    object-fit: contain;
+    border: 3px solid var(--amber);
+    margin: 0 auto 28px;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.18s, box-shadow 0.18s;
+    box-shadow: 0 4px 24px rgba(29,158,117,0.15);
+    background: transparent;
+  }
+  .hero-avatar:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 36px rgba(29,158,117,0.28);
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    max-width: 640px;
+    margin: 0 auto 20px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--amber);
+  }
+  .hero-sub {
+    font-size: 17px;
     color: var(--muted);
     max-width: 520px;
+    margin: 0 auto 36px;
+    line-height: 1.65;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--amber);
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 15px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    transition: opacity 0.15s;
+  }
+  .hero-cta:hover { opacity: 0.88; }
+
+  /* ── WHAT YOU'RE SELLING ── */
+  .section {
+    padding: 64px 0;
+    border-top: 1px solid var(--border);
+  }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .section h2 {
+    font-size: clamp(22px, 3.5vw, 30px);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  .section-body {
     font-size: 16px;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 600px;
+    margin-bottom: 28px;
   }
 
-  /* ---- Pitch card ---- */
-  .pitch {
-    background: #fff;
-    border: 1px solid var(--line);
+  /* ── FEATURE CARDS ── */
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 14px;
-    padding: 22px 24px;
-    margin-bottom: 36px;
+    padding: 22px 20px;
   }
-  .pitch h2 {
-    font-size: 18px;
-    margin-bottom: 8px;
-    color: var(--green-dark);
-  }
-  .pitch p { margin-bottom: 10px; font-size: 15px; }
-  .pitch p:last-child { margin-bottom: 0; }
-  .pitch ul { margin: 10px 0 10px 20px; font-size: 15px; }
-  .pitch li { margin-bottom: 4px; }
+  .card-icon { font-size: 22px; margin-bottom: 10px; }
+  .card h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .card p { font-size: 14px; color: var(--muted); line-height: 1.55; }
 
-  /* ---- Section headers ---- */
-  .section-head {
-    margin: 38px 0 14px;
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
+  /* ── COMMISSION VISUAL ── */
+  .commission-visual {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 28px;
+    margin-top: 32px;
   }
-  .section-head h3 { font-size: 17px; font-weight: 700; }
-  .section-head span {
+  .commission-visual h3 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .flow-step {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    padding: 16px 10px;
+    background: var(--surface2);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+  .flow-step .step-val {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--amber);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .flow-step .step-label {
     font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .flow-arrow {
+    color: var(--muted);
+    font-size: 18px;
+    padding: 0 8px;
+    flex-shrink: 0;
+  }
+  .referral-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px;
+    background: var(--green-dim);
+    border: 1px solid rgba(29,158,117,0.2);
+    border-radius: 10px;
+    margin-top: 12px;
+  }
+  .referral-badge {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--green);
+    white-space: nowrap;
+  }
+  .referral-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .referral-desc strong { color: var(--text); }
+
+  /* ── PRICING ── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 32px;
+  }
+  .pricing-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 26px 22px;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+  .pricing-card:hover { border-color: var(--amber); }
+  .pricing-card.featured {
+    border-color: var(--amber);
+    background: var(--surface2);
+  }
+  .featured-tag {
+    position: absolute;
+    top: -1px; right: 18px;
+    background: var(--amber);
+    color: #FFFFFF;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 0 0 8px 8px;
+  }
+  .pricing-tier {
+    font-size: 13px;
+    font-weight: 700;
     color: var(--muted);
     letter-spacing: 0.06em;
     text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .pricing-price {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+  .price-amount {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .price-period {
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .price-intro {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+  }
+  .intro-month {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--amber);
+    background: var(--amber-dim);
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+  .intro-strike {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: line-through;
+  }
+  .pricing-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 16px 0;
+  }
+  .partner-cut {
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .partner-cut strong {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--green);
+    display: block;
+    margin-bottom: 2px;
   }
 
-  /* ---- Grid ---- */
-  .row {
+  /* ── VIDEO EXAMPLES ── */
+  .video-section { padding: 64px 0; border-top: 1px solid var(--border); }
+  .video-row {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 8px;
+    margin-top: 24px;
   }
   .thumb {
     position: relative;
     aspect-ratio: 9/16;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
     background: #000;
-    border: 1px solid var(--line);
+    border: 1px solid var(--border);
   }
   .thumb img, .thumb video {
     width: 100%; height: 100%;
@@ -113,145 +387,487 @@
   .thumb .play {
     position: absolute; inset: 0;
     display: flex; align-items: center; justify-content: center;
-    background: rgba(0,0,0,0.18);
+    background: rgba(0,0,0,0.2);
     transition: background 0.2s;
   }
-  .thumb:hover .play { background: rgba(0,0,0,0.35); }
+  .thumb:hover .play { background: rgba(0,0,0,0.4); }
   .play-icon {
-    width: 36px; height: 36px;
+    width: 34px; height: 34px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.92);
+    background: rgba(232,168,56,0.9);
     display: flex; align-items: center; justify-content: center;
   }
   .play-icon::after {
     content: "";
     border-style: solid;
-    border-width: 7px 0 7px 11px;
-    border-color: transparent transparent transparent var(--green-dark);
+    border-width: 6px 0 6px 10px;
+    border-color: transparent transparent transparent var(--green);
     margin-left: 2px;
   }
   .thumb-label {
     position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 5px 6px 4px;
-    font-size: 10.5px;
+    padding: 5px 7px 5px;
+    font-size: 10px;
     color: #fff;
-    background: linear-gradient(transparent, rgba(0,0,0,0.65));
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
     font-weight: 600;
   }
-
-  @media (max-width: 600px) {
-    .row { grid-template-columns: repeat(3, 1fr); gap: 6px; }
-    h1 { font-size: 24px; }
-    .pitch h2:first-of-type, .pitch p:first-of-type { text-align: center; }
+  .video-sub-label {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 20px 0 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 
-  /* ---- CTA ---- */
-  .cta {
-    margin-top: 44px;
-    background: var(--green);
-    border-radius: 14px;
-    padding: 28px 24px;
+  /* ── WHO WE WANT ── */
+  .who-list {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .who-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .who-check {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--green-dim);
+    border: 1px solid rgba(29,158,117,0.3);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 800;
+  }
+  .who-text { font-size: 15px; color: var(--text); line-height: 1.5; }
+  .who-text span { color: var(--muted); font-size: 14px; display: block; margin-top: 2px; }
+
+  /* ── CTA ── */
+  .cta-section {
+    padding: 64px 0 80px;
+    border-top: 1px solid var(--border);
     text-align: center;
-    color: #fff;
   }
-  .cta h3 { font-size: 20px; margin-bottom: 8px; }
-  .cta p { font-size: 15px; opacity: 0.92; margin-bottom: 18px; max-width: 480px; margin-left: auto; margin-right: auto; }
-  .cta-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-  .cta-btn {
+  .cta-section h2 {
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+  .cta-section p {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto 32px;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
     display: inline-flex; align-items: center; gap: 8px;
-    background: #fff; color: var(--green-dark);
-    padding: 12px 22px; border-radius: 999px;
-    text-decoration: none; font-weight: 700; font-size: 15px;
-    transition: transform 0.15s;
+    background: var(--amber); color: #FFFFFF;
+    padding: 14px 26px; border-radius: 999px;
+    font-weight: 800; font-size: 15px;
+    transition: opacity 0.15s;
   }
-  .cta-btn:hover { transform: translateY(-1px); }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: var(--text);
+    padding: 14px 26px; border-radius: 999px;
+    font-weight: 700; font-size: 15px;
+    border: 1px solid var(--border);
+    transition: border-color 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--text); }
 
-  .footer-note {
-    margin-top: 28px;
+  .footer {
     text-align: center;
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
     font-size: 13px;
     color: var(--muted);
   }
 
-  /* ---- Lightbox ---- */
+  /* ── LIGHTBOX ── */
   .lightbox {
     position: fixed; inset: 0;
-    background: rgba(10,12,10,0.92);
+    background: rgba(5,5,5,0.94);
     display: none;
     align-items: center; justify-content: center;
-    z-index: 1000;
-    padding: 24px;
+    z-index: 1000; padding: 24px;
   }
   .lightbox.active { display: flex; }
   .lightbox-content {
-    max-width: 420px; width: 100%;
-    aspect-ratio: 9/16;
-    border-radius: 12px;
+    max-width: 520px; width: 100%;
+    border-radius: 14px;
     overflow: hidden;
     position: relative;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox-content.video-mode {
+    max-width: 380px;
+    aspect-ratio: 9/16;
     background: #000;
   }
   .lightbox-content video, .lightbox-content iframe {
-    width: 100%; height: 100%;
-    border: 0; display: block;
+    width: 100%; height: 100%; border: 0; display: block;
   }
   .lightbox-close {
-    position: absolute; top: -42px; right: 0;
+    position: absolute; top: -44px; right: 0;
     color: #fff; font-size: 28px; cursor: pointer;
     background: none; border: none; line-height: 1;
   }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .cards { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .video-row { grid-template-columns: repeat(3, 1fr); }
+    .flow { gap: 4px; }
+    .flow-step { min-width: 80px; padding: 12px 6px; }
+    .flow-step .step-val { font-size: 22px; }
+    .flow-arrow { padding: 0 2px; font-size: 14px; }
+  }
+
+  /* ── MOBILE FIRST — CENTER EVERYTHING ── */
+  @media (max-width: 768px) {
+    .wrap { padding: 0 16px; }
+
+    /* Nav */
+    nav .wrap { justify-content: center; flex-direction: column; gap: 10px; text-align: center; }
+    .nav-logo-wrap { justify-content: center; }
+    .nav-logo-text { align-items: center; }
+
+    /* Hero */
+    .hero { padding: 48px 0 40px; text-align: center; }
+    .hero h1 { text-align: center; }
+    .hero-sub { text-align: center; }
+    .hero-cta { display: inline-flex; }
+
+    /* Sections */
+    .section { padding: 48px 0; text-align: center; }
+    .section h2 { text-align: center; }
+    .section-body { text-align: center; margin-left: auto; margin-right: auto; }
+    .section-label { text-align: center; }
+
+    /* Feature cards */
+    .cards { grid-template-columns: 1fr; gap: 10px; }
+    .card { text-align: center; }
+
+    /* Commission visual */
+    .commission-visual { text-align: center; padding: 24px 16px; }
+    .commission-visual h3 { text-align: center; }
+    .flow { flex-direction: column; align-items: center; gap: 6px; }
+    .flow-arrow { transform: rotate(90deg); padding: 2px 0; }
+    .flow-step { width: 100%; max-width: 280px; }
+    .referral-row { flex-direction: column; text-align: center; align-items: center; gap: 8px; }
+
+    /* Pricing */
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-card { text-align: center; }
+    .pricing-price { justify-content: center; }
+    .price-intro { justify-content: center; }
+    .partner-cut { text-align: center; }
+
+    /* Video section */
+    .video-section { padding: 48px 0; text-align: center; }
+    .video-section h2 { text-align: center; }
+    .section-body { text-align: center; }
+    .video-sub-label { text-align: center; }
+    .video-row { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+
+    /* Who list */
+    .who-list { gap: 8px; }
+    .who-item { text-align: left; } /* keep left — it's a checklist, exception per brief */
+
+    /* CTA section */
+    .cta-section { padding: 48px 0 60px; text-align: center; }
+    .cta-section h2 { text-align: center; }
+    .cta-section p { text-align: center; }
+    .cta-buttons { flex-direction: column; align-items: center; }
+    .btn-primary, .btn-secondary { width: 100%; max-width: 300px; justify-content: center; }
+
+    /* Footer */
+    .footer { text-align: center; }
+  }
+
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <!-- HERO -->
-  <div class="hero">
-    <img class="avatar" src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/MY%20PORTFOLIO/LOGOS/lamar_myers_b.png" alt="Lamar Myers">
-    <p class="eyebrow">Tucson, AZ · Partnership Opportunity</p>
-    <h1>Looking for a Tucson partner to help bring AI-powered video marketing to local real estate pros</h1>
-    <p>I build short-form, AI-produced video content — like the examples below — for apartment communities and real estate teams. I'm looking for someone in the Tucson area to help bring this to property managers, leasing offices, and agents. Could be a fit if you're already in real estate, marketing, or just know people in the industry.</p>
+<nav>
+  <div class="wrap">
+    <a class="nav-logo-wrap" href="https://lamar-myers-biz-card.vercel.app/" target="_blank" rel="noopener">
+      <img class="nav-logo-img"
+        src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/MY%20PORTFOLIO/LOGOS/lamar_myers_b.png"
+        alt="Lamar Myers">
+      <div class="nav-logo-text">
+        <span class="nav-name">Lamar Myers</span>
+        <span class="nav-title">Founder & CEO · VTREI, LLC · AI Video Content</span>
+      </div>
+    </a>
+    <span class="nav-badge">Partners Wanted</span>
   </div>
+</nav>
 
-  <!-- PITCH -->
-  <div class="pitch">
-    <h2>What this is</h2>
-    <p>Every example below is AI-produced — no camera crew, no model fees, no studio. Properties get a steady stream of ready-to-post TikTok/Instagram content featuring their actual spaces (and an AI brand ambassador) for a fraction of traditional production cost.</p>
-    <h2 style="margin-top:14px;">What I'm looking for</h2>
-    <ul>
-      <li>Someone based in or familiar with the Tucson real estate / property management scene</li>
-      <li>Comfortable reaching out to leasing offices, property managers, or agents</li>
-      <li>Open to a revenue-share or referral arrangement — flexible, let's talk</li>
-    </ul>
-    <p>No experience with AI tools required — that part's on me. I just need someone who can open doors locally.</p>
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <img class="hero-avatar"
+      src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/MY%20PORTFOLIO/LOGOS/tucson.png"
+      alt="Tucson, AZ"
+      id="tucsonLogo"
+      onclick="openLogoLightbox()">
+    <p class="hero-eyebrow">Partnership Opportunity · Tucson, AZ</p>
+    <h1>Bring AI video to local real estate.<br><em>Split the revenue.</em> Keep it simple.</h1>
+    <p class="hero-sub">I produce AI-powered short-form video content for apartment communities and real estate teams — no camera crew, no studio. I need a Tucson-based partner to open doors. You bring the clients, we split everything 50/50.</p>
+    <a class="hero-cta" href="mailto:ai.agent.lamar@gmail.com?subject=Tucson%20Partnership%20Interest">
+      Let's talk →
+    </a>
   </div>
+</div>
 
-  <!-- PROPERTY EXAMPLES -->
-  <div class="section-head">
-    <h3>Property &amp; grounds footage</h3>
-    <span>5 examples</span>
-  </div>
-  <div class="row" id="propertyRow"></div>
-
-  <!-- SHANICE EXAMPLES -->
-  <div class="section-head">
-    <h3>Shanice — AI brand ambassador</h3>
-    <span>5 examples</span>
-  </div>
-  <div class="row" id="shaniceRow"></div>
-
-  <!-- CTA -->
-  <div class="cta">
-    <h3>Interested? Let's talk.</h3>
-    <p>If you're in Tucson and think this could be a fit — for yourself or someone you know in real estate — reach out. Happy to share more examples and talk through how it could work.</p>
-    <div class="cta-buttons">
-      <a class="cta-btn" href="mailto:ai.agent.lamar@gmail.com?subject=Tucson%20Partnership%20Interest">✉ Email Me</a>
-      <a class="cta-btn" href="tel:+15202582714">📱 Call / Text (520) 258-2714</a>
+<!-- WHAT YOU'RE SELLING -->
+<div class="section">
+  <div class="wrap">
+    <p class="section-label">The product</p>
+    <h2>AI-produced video, delivered monthly.<br>No cameras. No crews. No contracts.</h2>
+    <p class="section-body">Every video below is produced entirely with AI — no model fees, no location shoots. Properties get a consistent stream of TikTok/Instagram-ready content at a fraction of what traditional production costs. Your job is to get them in the door. Mine is to deliver.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🎬</div>
+        <h4>Ready-to-post content</h4>
+        <p>Short-form vertical video formatted for TikTok, Instagram Reels, and YouTube Shorts — delivered every month, on schedule.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤖</div>
+        <h4>AI brand ambassador</h4>
+        <p>A consistent AI character that represents the property, tours amenities, and keeps content fresh without recurring talent costs.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📐</div>
+        <h4>Flat monthly subscription</h4>
+        <p>No hourly billing, no project quotes, no surprises. Clients pick a tier, pay monthly, and pause or cancel any time.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📍</div>
+        <h4>Built for real estate</h4>
+        <p>Apartment communities, leasing offices, property managers, and agents — this is built around how they market and what they need.</p>
+      </div>
     </div>
   </div>
-
-  <p class="footer-note">Lamar Myers · AI-produced video content for real estate · June 2026</p>
 </div>
+
+<!-- COMMISSION STRUCTURE -->
+<div class="section">
+  <div class="wrap">
+    <p class="section-label">How you get paid</p>
+    <h2>Simple splits. Recurring income.</h2>
+    <p class="section-body">Every client you bring in puts money in your pocket — not just once, but every single month they stay. And when your clients refer others, you earn on those too.</p>
+
+    <div class="commission-visual">
+      <h3>Direct client split</h3>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="step-val">You</div>
+          <div class="step-label">Open the door,<br>close the deal</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="step-val">Client pays</div>
+          <div class="step-label">Monthly subscription,<br>any tier</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="step-val" style="color:var(--amber)">50%</div>
+          <div class="step-label">Yours, every month<br>they're active</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="step-val" style="color:var(--muted)">50%</div>
+          <div class="step-label">Lamar covers<br>production</div>
+        </div>
+      </div>
+
+      <div class="referral-row">
+        <div class="referral-badge">+25%</div>
+        <div class="referral-desc">
+          <strong>Referral bonus — going down the line.</strong>
+          When your client refers someone else, you earn 25% of that client's subscription too — every month they stay active.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div class="section">
+  <div class="wrap">
+    <p class="section-label">Pricing tiers</p>
+    <h2>Know exactly what you're selling.</h2>
+    <p class="section-body">Four tiers. Fixed prices. The first month is always discounted — your best pitch to get a client to say yes with zero risk. Month two onward is full rate.</p>
+
+    <div class="pricing-grid">
+
+      <div class="pricing-card featured">
+        <div class="featured-tag">Best entry point</div>
+        <div class="pricing-tier">Starter · 10 videos/mo</div>
+        <div class="pricing-price">
+          <span class="price-amount">$500</span>
+          <span class="price-period">/mo</span>
+        </div>
+        <div class="price-intro">
+          <span class="intro-month">Month 1: $125</span>
+          <span class="intro-strike">75% off</span>
+        </div>
+        <hr class="pricing-divider">
+        <div class="partner-cut">
+          <strong>You earn $250/mo</strong>
+          50% of $500 starting month 2
+        </div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-tier">Growth · 20 videos/mo</div>
+        <div class="pricing-price">
+          <span class="price-amount">$750</span>
+          <span class="price-period">/mo</span>
+        </div>
+        <div class="price-intro">
+          <span class="intro-month">Month 1: $375</span>
+          <span class="intro-strike">50% off</span>
+        </div>
+        <hr class="pricing-divider">
+        <div class="partner-cut">
+          <strong>You earn $375/mo</strong>
+          50% of $750 starting month 2
+        </div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-tier">Pro · 30 videos/mo</div>
+        <div class="pricing-price">
+          <span class="price-amount">$1,000</span>
+          <span class="price-period">/mo</span>
+        </div>
+        <div class="price-intro">
+          <span class="intro-month">Month 1: $500</span>
+          <span class="intro-strike">50% off</span>
+        </div>
+        <hr class="pricing-divider">
+        <div class="partner-cut">
+          <strong>You earn $500/mo</strong>
+          50% of $1,000 starting month 2
+        </div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-tier">Unlimited · videos/mo</div>
+        <div class="pricing-price">
+          <span class="price-amount">$1,250</span>
+          <span class="price-period">/mo</span>
+        </div>
+        <div class="price-intro">
+          <span class="intro-month">Month 1: $625</span>
+          <span class="intro-strike">50% off</span>
+        </div>
+        <hr class="pricing-divider">
+        <div class="partner-cut">
+          <strong>You earn $625/mo</strong>
+          50% of $1,250 starting month 2
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO EXAMPLES -->
+<div class="video-section" style="text-align:center;">
+  <div class="wrap">
+    <p class="section-label">Work examples</p>
+    <h2>This is what you're selling.</h2>
+    <p class="section-body" style="margin-top:8px;text-align:center;margin-left:auto;margin-right:auto;">Real AI-produced content. No camera crew. No studio. Every clip below was built from property footage and AI tools — ready to post on day one.</p>
+
+    <p class="video-sub-label">Property &amp; grounds footage</p>
+    <div class="video-row" id="propertyRow"></div>
+
+    <p class="video-sub-label" style="margin-top:28px;">Shanice — AI brand ambassador</p>
+    <div class="video-row" id="shaniceRow"></div>
+  </div>
+</div>
+
+<!-- WHO WE WANT -->
+<div class="section">
+  <div class="wrap">
+    <p class="section-label">Is this you?</p>
+    <h2>You don't need to know anything about AI.</h2>
+    <p class="section-body">The tech is handled. What you need is local relationships and the willingness to start conversations.</p>
+    <div class="who-list">
+      <div class="who-item">
+        <div class="who-check">✓</div>
+        <div class="who-text">
+          You're based in or connected to the Tucson real estate scene
+          <span>Property managers, leasing agents, apartment community staff — you know someone.</span>
+        </div>
+      </div>
+      <div class="who-item">
+        <div class="who-check">✓</div>
+        <div class="who-text">
+          You're comfortable starting conversations and following up
+          <span>This is relationship-driven. If you can send a text or walk into a leasing office, you can do this.</span>
+        </div>
+      </div>
+      <div class="who-item">
+        <div class="who-check">✓</div>
+        <div class="who-text">
+          You want recurring income, not a one-time commission
+          <span>Every client you close pays you every month. The longer they stay, the more you make.</span>
+        </div>
+      </div>
+      <div class="who-item">
+        <div class="who-check">✓</div>
+        <div class="who-text">
+          You're okay with a low-pressure intro ask
+          <span>Month one is heavily discounted — the conversation is easy. You're not asking anyone to commit big.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="cta-section">
+  <div class="wrap">
+    <h2>Ready to earn on every client you bring in?</h2>
+    <p>Reach out and let's figure out if this makes sense for you. No pressure, no pitch deck — just a real conversation.</p>
+    <div class="cta-buttons">
+      <a class="btn-primary" href="mailto:ai.agent.lamar@gmail.com?subject=Tucson%20Partnership%20Interest">✉ Email Lamar</a>
+      <a class="btn-secondary" href="tel:+15202582714">📱 (520) 258-2714</a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="wrap">Lamar Myers · AI-produced video content for real estate · Tucson, AZ · 2026</div>
+</footer>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
@@ -261,70 +877,69 @@
 
 <script src="https://player.vimeo.com/api/player.js"></script>
 <script>
-// Property / grounds footage (Vimeo-hosted)
 const propertyVideos = [
-  { label: "Aerial View",      id: "1200025934", thumb: "https://vumbnail.com/1200025934.jpg" },
-  { label: "Pool Area",         id: "1200032008", thumb: "https://vumbnail.com/1200032008.jpg" },
-  { label: "Leasing Office",    id: "1200032185", thumb: "https://vumbnail.com/1200032185.jpg" },
-  { label: "Gym Area",          id: "1200032300", thumb: "https://vumbnail.com/1200032300.jpg" },
-  { label: "Leasing Walkway",   id: "1200032553", thumb: "https://vumbnail.com/1200032553.jpg" }
+  { label: "Aerial View",    id: "1200025934", thumb: "https://vumbnail.com/1200025934.jpg" },
+  { label: "Pool Area",      id: "1200032008", thumb: "https://vumbnail.com/1200032008.jpg" },
+  { label: "Leasing Office", id: "1200032185", thumb: "https://vumbnail.com/1200032185.jpg" },
+  { label: "Gym Area",       id: "1200032300", thumb: "https://vumbnail.com/1200032300.jpg" },
+  { label: "Walkway",        id: "1200032553", thumb: "https://vumbnail.com/1200032553.jpg" }
 ];
 
-// Shanice (AI ambassador) clips — direct mp4s
 const shaniceVideos = [
-  { label: "Pool",            src: "https://jlwolssfdspougmdxfmf.supabase.co/storage/v1/object/public/video_series/shanice_pool.mp4" },
-  { label: "Leasing Office",  src: "https://jlwolssfdspougmdxfmf.supabase.co/storage/v1/object/public/video_series/shanice_leasing_office.mp4" },
-  { label: "Inside Apartment",src: "https://jlwolssfdspougmdxfmf.supabase.co/storage/v1/object/public/video_series/shanice_inside_home.mp4" },
-  { label: "Gym Area",        src: "https://jlwolssfdspougmdxfmf.supabase.co/storage/v1/object/public/video_series/shanice_gym.mp4" },
-  { label: "Kitchen",         src: "https://jlwolssfdspougmdxfmf.supabase.co/storage/v1/object/public/video_series/shanice_kitchen.mp4" }
+  { label: "Pool",             src: "https://jlwolssfdspougmdxfmf.supabase.co/storage/v1/object/public/video_series/shanice_pool.mp4" },
+  { label: "Leasing Office",   src: "https://jlwolssfdspougmdxfmf.supabase.co/storage/v1/object/public/video_series/shanice_leasing_office.mp4" },
+  { label: "Inside Apartment", src: "https://jlwolssfdspougmdxfmf.supabase.co/storage/v1/object/public/video_series/shanice_inside_home.mp4" },
+  { label: "Gym Area",         src: "https://jlwolssfdspougmdxfmf.supabase.co/storage/v1/object/public/video_series/shanice_gym.mp4" },
+  { label: "Kitchen",          src: "https://jlwolssfdspougmdxfmf.supabase.co/storage/v1/object/public/video_series/shanice_kitchen.mp4" }
 ];
 
-const propertyRow = document.getElementById('propertyRow');
-const shaniceRow = document.getElementById('shaniceRow');
-const lightbox = document.getElementById('lightbox');
-const lightboxContent = document.getElementById('lightboxContent');
-const lightboxClose = document.getElementById('lightboxClose');
-
-function openVimeo(v) {
-  lightboxContent.innerHTML = `<iframe src="https://player.vimeo.com/video/${v.id}?autoplay=1&loop=1&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
-  lightbox.classList.add('active');
+// Logo lightbox
+function openLogoLightbox() {
+  const lb = document.getElementById('lightbox');
+  const lbc = document.getElementById('lightboxContent');
+  lbc.innerHTML = '<img src="https://mlgmigguhljsiopctkkj.supabase.co/storage/v1/object/public/MY%20PORTFOLIO/LOGOS/tucson.png" alt="Tucson" style="width:100%;height:100%;object-fit:contain;border-radius:14px;background:transparent;">';
+  lb.classList.add('active');
 }
 
+const lightbox = document.getElementById('lightbox');
+const lightboxContent = document.getElementById('lightboxContent');
+
+function openVimeo(v) {
+  lightboxContent.classList.add('video-mode');
+  lightboxContent.innerHTML = `<iframe src="https://player.vimeo.com/video/${v.id}?autoplay=1&loop=1&badge=0&autopause=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+  lightbox.classList.add('active');
+}
 function openMp4(v) {
+  lightboxContent.classList.add('video-mode');
   lightboxContent.innerHTML = `<video src="${v.src}#t=0.1" controls autoplay loop playsinline></video>`;
   lightbox.classList.add('active');
 }
-
 function closeLightbox() {
   lightboxContent.innerHTML = '';
+  lightboxContent.classList.remove('video-mode');
   lightbox.classList.remove('active');
 }
 
-lightboxClose.addEventListener('click', closeLightbox);
-lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-propertyVideos.forEach(v => {
+function buildThumb(label, imgSrc, clickFn) {
   const div = document.createElement('div');
   div.className = 'thumb';
-  div.innerHTML = `
-    <img src="${v.thumb}" alt="${v.label}" loading="lazy">
-    <div class="play"><div class="play-icon"></div></div>
-    <div class="thumb-label">${v.label}</div>`;
-  div.addEventListener('click', () => openVimeo(v));
-  propertyRow.appendChild(div);
-});
+  div.innerHTML = imgSrc.startsWith('http') && imgSrc.endsWith('.jpg')
+    ? `<img src="${imgSrc}" alt="${label}" loading="lazy">`
+    : `<video src="${imgSrc}#t=0.1" muted playsinline preload="metadata"></video>`;
+  div.innerHTML += `<div class="play"><div class="play-icon"></div></div><div class="thumb-label">${label}</div>`;
+  div.addEventListener('click', clickFn);
+  return div;
+}
 
-shaniceVideos.forEach(v => {
-  const div = document.createElement('div');
-  div.className = 'thumb';
-  div.innerHTML = `
-    <video src="${v.src}#t=0.1" muted playsinline preload="metadata"></video>
-    <div class="play"><div class="play-icon"></div></div>
-    <div class="thumb-label">${v.label}</div>`;
-  div.addEventListener('click', () => openMp4(v));
-  shaniceRow.appendChild(div);
-});
+const propertyRow = document.getElementById('propertyRow');
+propertyVideos.forEach(v => propertyRow.appendChild(buildThumb(v.label, v.thumb, () => openVimeo(v))));
+
+const shaniceRow = document.getElementById('shaniceRow');
+shaniceVideos.forEach(v => shaniceRow.appendChild(buildThumb(v.label, v.src, () => openMp4(v))));
 </script>
 </body>
 </html>
