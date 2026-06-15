@@ -31,12 +31,6 @@
 
   a { color: inherit; text-decoration: none; }
 
-  @media (max-width: 480px) {
-    .hero h1 {
-      font-size: 14px;
-    }
-  }
-
   .wrap {
     max-width: 780px;
     margin: 0 auto;
@@ -124,7 +118,7 @@
     margin-bottom: 18px;
   }
   .hero h1 {
-    font-size: clamp(22px, 5vw, 48px);
+    font-size: clamp(30px, 5vw, 48px);
     font-weight: 800;
     letter-spacing: -0.02em;
     line-height: 1.15;
@@ -182,6 +176,16 @@
     line-height: 1.7;
     max-width: 600px;
     margin-bottom: 28px;
+  }
+
+  @media (max-width: 600px) {
+    .product-h2 {
+      font-size: clamp(15px, 4.2vw, 22px);
+      white-space: nowrap;
+    }
+    .product-h2 br {
+      display: block;
+    }
   }
 
   /* ── FEATURE CARDS ── */
@@ -655,7 +659,7 @@
 <div class="section">
   <div class="wrap">
     <p class="section-label">The product</p>
-    <h2>AI-produced video, delivered monthly.<br>No cameras. No crews. No contracts.</h2>
+    <h2 class="product-h2">AI-produced video, delivered monthly.<br>No cameras. No crews. No contracts.</h2>
     <p class="section-body">Every video below is produced entirely with AI — no model fees, no location shoots. Properties get a consistent stream of TikTok/Instagram-ready content at a fraction of what traditional production costs. Your job is to get them in the door. Mine is to deliver.</p>
     <div class="cards">
       <div class="card">
